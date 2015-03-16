@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.hzsun.jcjy.dao.UserDao">
+		<resultMap type="User" id="UserResult">
+			<id  column="id" property="id" />
+			<result column="username" property="userName"/>
+			<result column="password" property="password"/>
+		</resultMap>
+		
+		<sql id="selectUser"> select id, username,password from users </sql>
+		
+		<select id="getUsers" resultMap="UserResult">
+			 <include refid="selectUser" />
+		</select>
+	</mapper>
